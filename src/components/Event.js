@@ -2,7 +2,8 @@ import React from 'react'
 const Event = ({ dispatch, event }) => {
     const id = event.id
       const handleClickDeleteButton = () => {
-        dispatch({type: 'DELETE_EVENT', id})
+        const result = window.confirm(`(id=${id})イベントを本当に削除してもいいですか`)
+        if (result) dispatch({type: 'DELETE_EVENT', id})
       }
       return (
       <tr>
