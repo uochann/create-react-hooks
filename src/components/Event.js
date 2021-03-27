@@ -1,10 +1,13 @@
 import React, { useContext } from 'react'
-
-
+import { Button } from '@material-ui/core';
 import AppContext from '../contexts/AppContext'
 
-import { DELETE_EVENT,
-        ADD_OPERATION_LOG } from '../actions'
+import { 
+  DELETE_EVENT,
+  ADD_OPERATION_LOG 
+} from '../actions'
+import { TableRow, TableCell } from '@material-ui/core';
+
 import { timeCurrentIso8602 } from '../utils'
 
 const Event = ({ event }) => {
@@ -23,12 +26,12 @@ const Event = ({ event }) => {
         }
       }
       return (
-      <tr>
-        <td>{event.id}</td>
-        <td>{event.title}</td>
-        <td>{event.body}</td>
-        <td><button type="button" className="btn btn-danger" onClick={handleClickDeleteButton}>削除</button></td>
-      </tr>
+      <TableRow>
+        <TableCell>{event.id}</TableCell>
+        <TableCell>{event.title}</TableCell>
+        <TableCell>{event.body}</TableCell>
+        <TableCell><Button color="secondary" variant="contained" onClick={handleClickDeleteButton}>削除</Button></TableCell>
+      </TableRow>
       )  
     }
 export default Event
