@@ -1,11 +1,20 @@
 import React from 'react'
 
+import { 
+    Table,
+    TableContainer,
+    TableBody,
+    TableHead,
+    TableRow,
+    TableCell
+  } from '@material-ui/core';
+
 const OperationLog = ({ operationLog }) => {
     return (
-        <tr>
-            <td>{operationLog.description}</td>
-            <td>{operationLog.operatedAt}</td>
-        </tr>
+        <TableRow>
+            <TableCell>{operationLog.description}</TableCell>
+            <TableCell>{operationLog.operatedAt}</TableCell>
+        </TableRow>
     )
 }
 

@@ -2,27 +2,49 @@ import React, { useContext } from 'react'
 
 import OperationLog from './OperationLog'
 import AppContext from '../contexts/AppContext'
+import { 
+    Table,
+    TableContainer,
+    TableBody,
+    TableHead,
+    TableRow,
+    TableCell
+  } from '@material-ui/core';
+
+
+const columns = [
+{ id: 'id', label: '内容', minWidth: 170 },
+{ id: 'code', label: '日時', minWidth: 100 },
+]
 
 const OperationLogs = () => {
     const {state} = useContext(AppContext)
     return(
         <>
         <h4>操作ログ一覧</h4>
-        <table className="table table-hover">
-            <thead>
-                <tr>
-                    <th>内容</th>
-                    <th>日時</th>
-                </tr>
-            </thead>
-            <tbody>
+        <TableContainer className="table table-hover">
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                    {columns.map((column) => (
+                      <TableCell
+                        key={column.id}
+                        align={column.align}
+                        style={{ minWidth: column.minWidth }}>
+                        {column.label}
+                      </TableCell>
+                    ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
                 {
                     state.operationLogs.map((operationLog, index) => {
                         return <OperationLog key={index} operationLog={operationLog}/>
                     })
                 }
-            </tbody>
-        </table>
+              </TableBody>
+          </Table>
+        </TableContainer>
         </>
     )
 }

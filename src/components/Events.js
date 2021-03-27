@@ -1,26 +1,49 @@
 import React, { useContext } from 'react'
 
+import { 
+  Table,
+  TableContainer,
+  TableBody,
+  TableHead,
+  TableRow,
+  TableCell
+} from '@material-ui/core';
+
 import Event from './Event'
 import AppContext from '../contexts/AppContext'
+
+
+const columns = [
+  { id: 'id', label: 'ID', minWidth: 170 },
+  { id: 'text', label: 'タイトル', minWidth: 170 },
+  { id: 'text', label: 'ボディ', minWidth: 170 }
+]
+
 
 const Events = () => {
   const { state } = useContext(AppContext)
     return (
         <>
         <h4>イベント一覧</h4>
-          <table className="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>タイトル</th>
-                    <th>ボディ</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-            {state.events.map((event, index) => (<Event key={index} event={event}/>))}
-            </tbody>
-        </table>
+          <TableContainer className="table table-hover">
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                    {columns.map((column) => (
+                      <TableCell
+                        key={column.id}
+                        align={column.align}
+                        style={{ minWidth: column.minWidth }}>
+                        {column.label}
+                      </TableCell>
+                    ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+              {state.events.map((event, index) => (<Event key={index} event={event}/>))}
+              </TableBody>
+          </Table>
+        </TableContainer>
       </>
     )
 }

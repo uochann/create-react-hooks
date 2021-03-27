@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { Button, TextField } from '@material-ui/core';
 
 import {
   CREATE_EVENT,
@@ -60,18 +61,14 @@ const EventForm = () => {
     return (
         <>
         <h4>イベント作成フォーム</h4>
-        <form>
-          <div className="form-group">
-            <label htmlFor="formEventTitle">タイトル</label>
-              <input className="form-control" id="formEventTitle" value={title} onChange={e => setTitle(e.target.value)}></input>
-            </div>
-              <div className="form-group">
-              <label htmlFor="formEventBody">ボディ</label>
-            <textarea className="form-control" id="formEventBody" value={body} onChange={e => setBody(e.target.value)}></textarea>
-            </div>
-            <button className="btn btn-primary" onClick={addEvent} disabled={unCreatable}>イベントを作成する</button>
-            <button className="btn btn-danger" onClick={deleteAllEvents} disabled={state.events.length === 0}>すべてのイベントを作成する</button>
-            <button className="btn btn-danger" onClick={deleteAllOperationLogs} disabled={state.operationLogs.lengs === 0}>すべてのログを削除する</button>
+        <form className="classes.root" noValidate autoComplete="off">
+          <TextField id="outlined-basic" label="タイトル" variant="outlined" id="formEventTitle"
+                  value={title} onChange={e => setTitle(e.target.value)} /><br/>
+          <TextField id="outlined-basic" label="ボディ" variant="outlined" id="formEventBody"
+                  value={body} onChange={e => setBody(e.target.value)} /><br/>
+            <Button color="primary" variant="contained"  onClick={addEvent} disabled={unCreatable}>イベントを作成する</Button>
+            <Button color="secondary" variant="contained" onClick={deleteAllEvents} disabled={state.events.length === 0}>すべてのイベントを作成する</Button>
+            <Button color="secondary" variant="contained" onClick={deleteAllOperationLogs} disabled={state.operationLogs.lengs === 0}>すべてのログを削除する</Button>
         </form>
         </>
     )
