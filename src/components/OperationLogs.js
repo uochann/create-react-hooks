@@ -8,7 +8,8 @@ import {
     TableBody,
     TableHead,
     TableRow,
-    TableCell
+    TableCell,
+    Box
   } from '@material-ui/core';
 
 
@@ -21,7 +22,9 @@ const OperationLogs = () => {
     const {state} = useContext(AppContext)
     return(
         <>
-        <h4>操作ログ一覧</h4>
+        <Box fontSize="h4.fontSize" textAlign="center" m={4}>
+        操作ログ一覧
+        </Box>
         <TableContainer className="table table-hover">
             <Table stickyHeader aria-label="sticky table">
               <TableHead>

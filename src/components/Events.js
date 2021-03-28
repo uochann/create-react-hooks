@@ -6,7 +6,8 @@ import {
   TableBody,
   TableHead,
   TableRow,
-  TableCell
+  TableCell,
+  Box
 } from '@material-ui/core';
 
 import Event from './Event'
@@ -24,7 +25,7 @@ const Events = () => {
   const { state } = useContext(AppContext)
     return (
         <>
-        <h4>イベント一覧</h4>
+        <Box fontSize="h4.fontSize" textAlign="center" m={4}>イベント一覧</Box>
           <TableContainer className="table table-hover">
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
