@@ -26,12 +26,14 @@ const Event = ({ event }) => {
         }
       }
       return (
-      <TableRow>
-        <TableCell>{event.id}</TableCell>
-        <TableCell>{event.title}</TableCell>
-        <TableCell>{event.body}</TableCell>
-        <TableCell><Button color="secondary" variant="contained" onClick={handleClickDeleteButton}>削除</Button></TableCell>
-      </TableRow>
+        <>
+        <TableRow>
+          <TableCell>{event.id}</TableCell>
+          <TableCell>{event.title}</TableCell>
+          <TableCell>{event.body}</TableCell>
+          <TableCell><Button color="secondary" variant="contained" onClick={handleClickDeleteButton}>削除</Button></TableCell>
+        </TableRow>
+        </>
       )  
     }
 export default Event
