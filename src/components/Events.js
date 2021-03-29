@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import EventAllFetch from './EventAllFetch'
 
 import { 
   Table,
@@ -26,6 +27,7 @@ const Events = () => {
     return (
         <>
         <Box fontSize="h4.fontSize" textAlign="center" m={4}>イベント一覧</Box>
+        <EventAllFetch/>
           <TableContainer className="table table-hover">
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
